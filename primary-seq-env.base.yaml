@@ -1,0 +1,40 @@
+name: primary-seq-env
+channels:
+- bioconda
+- conda-forge
+- defaults
+dependencies:
+- bamtools
+- bcftools
+- blast
+- beagle
+- bedtools
+- bleach
+- bwa
+- datamash
+- fastqc
+- fastx_toolkit
+- gatk
+- ibdseq
+- java-jdk
+- multiqc
+- muscle
+- parallel
+- picard
+- primer3
+- sambamba
+- snpeff
+- trimmomatic
+- vcflib
+- vcftools
+- cython
+- ipython
+- pigz
+- numpy
+- bedops
+- r-essentials
+- r-tidyverse
+- bioconductor-phyloseq
+- bioconductor-biocinstaller
+prefix: /usr/local/var/pyenv/versions/miniconda3-4.3.27/envs/primary-seq-env
+
