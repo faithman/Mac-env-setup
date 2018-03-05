@@ -1,0 +1,14 @@
+name: vcf-kit
+channels:
+- bioconda
+- conda-forge
+- defaults
+dependencies:
+- cython
+- numpy
+- python=2.7.14
+- pip:
+  - https://github.com/AndersenLab/bam-toolbox/archive/0.0.3.tar.gz
+  - vcf-kit
+prefix: /usr/local/var/pyenv/versions/miniconda3-4.3.27/envs/vcf-kit
+
