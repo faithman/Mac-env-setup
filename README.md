@@ -4,6 +4,7 @@ The conda environment files are designed to be used with [pyenv](https://github.
 
 ```
 # Install linuxbrew
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 
 #
 brew install pyenv
