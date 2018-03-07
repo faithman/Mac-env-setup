@@ -24,6 +24,7 @@ dependencies:
 - picard
 - primer3
 - sambamba
+- samtools
 - snpeff
 - trimmomatic
 - vcflib
@@ -35,6 +36,7 @@ dependencies:
 - bedops
 - r-essentials
 - r-tidyverse
+- rename
 - bioconductor-phyloseq
 - bioconductor-biocinstaller
 prefix: /usr/local/var/pyenv/versions/miniconda3-4.3.27/envs/primary-seq-env
