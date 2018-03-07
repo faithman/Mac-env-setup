@@ -16,6 +16,7 @@ dependencies:
 - fastx_toolkit
 - gatk
 - ibdseq
+- rename
 - java-jdk
 - multiqc
 - muscle
