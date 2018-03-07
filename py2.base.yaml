@@ -1,4 +1,4 @@
-name: vcf-kit
+name: py2
 channels:
 - bioconda
 - conda-forge
@@ -6,9 +6,11 @@ channels:
 dependencies:
 - cython
 - numpy
+- awscli
 - python=2.7.14
 - pip:
   - https://github.com/AndersenLab/bam-toolbox/archive/0.0.3.tar.gz
   - vcf-kit
+  - gsutil
 prefix: /usr/local/var/pyenv/versions/miniconda3-4.3.27/envs/vcf-kit
 

@@ -27,9 +27,11 @@ dependencies:
 - sambamba
 - samtools
 - snpeff
+- igvtools
 - trimmomatic
 - vcflib
 - vcftools
+- vcfanno
 - cython
 - ipython
 - pigz
