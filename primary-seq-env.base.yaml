@@ -8,9 +8,10 @@ dependencies:
 - bcftools
 - blast
 - beagle
+- bedops
 - bedtools
-- bleach
 - bwa
+- freebayes==1.1.0
 - datamash
 - fastqc
 - fastx_toolkit
@@ -33,10 +34,14 @@ dependencies:
 - ipython
 - pigz
 - numpy
-- bedops
+- cyvcf2
 - r-essentials
 - r-tidyverse
+- r-sleuth
 - rename
+- salmon
+- liknorm
+- kallisto
 - bioconductor-phyloseq
 - bioconductor-biocinstaller
 prefix: /usr/local/var/pyenv/versions/miniconda3-4.3.27/envs/primary-seq-env
