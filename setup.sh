@@ -72,8 +72,8 @@ cecho "Creating conda environments" green
 
 curl -s https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/primary-seq-env.yaml > primary-seq-env.yaml
 curl -s https://github.com/AndersenLab/andersen-lab-env/blob/master/py2.yaml > py2.yaml
-conda env create --name primary-seq-env --file primary-seq-env.yaml
-conda env create --name py2 --file py2.yaml
+conda env create --force --name primary-seq-env --file primary-seq-env.yaml
+conda env create --force --name py2 --file py2.yaml
 
 pyenv global miniconda3-4.3.27/envs/primary-seq-env miniconda3-4.3.27/envs/py2 miniconda3-4.3.27
 
