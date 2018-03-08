@@ -41,7 +41,7 @@ function cecho(){
 }
 
 # Install homebrew dependencies
-if ! [ -x "$(brew)" ]; then
+if ! [ -x "$(command -v brew)" ]; then
     cecho "Please install homebrew or linuxbrew"
     exit 1;
 fi;
