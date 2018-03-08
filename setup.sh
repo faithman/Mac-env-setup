@@ -85,8 +85,8 @@ conda env create --force --name py2-${DATE} --file py2.environment.yaml
 
 # Create record of environment
 mkdir -p ~/.conda_environment_provenance
-conda env --name export primary-${DATE} > ~/.conda_environment_provenance/primary-${DATE}.yaml
-conda env --name export py2-${DATE} > ~/.conda_environment_provenance/py2-${DATE}.yaml
+conda env export  --name  primary-${DATE} > ~/.conda_environment_provenance/primary-${DATE}.yaml
+conda env export  --name  py2-${DATE} > ~/.conda_environment_provenance/py2-${DATE}.yaml
 
 # Remove local environment
 rm .python-version
