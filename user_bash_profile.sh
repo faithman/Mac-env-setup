@@ -1,6 +1,6 @@
 #!/bin/bash
 export HOMEBREW_EDITOR=nano
-export PS1='\[\e[0;35m\][\h::\w] 😱 \[\e[m\] '
+export PS1='\[\e[0;35m\][\h::\w] 🏀 \[\e[m\] '
 export PATH="$HOME/.linuxbrew/bin:~/google-cloud-sdk/bin:$PATH"
 export MANPATH="$(brew --prefix)/share/man:$MANPATH"
 export INFOPATH="$(brew --prefix)/share/info:$INFOPATH"

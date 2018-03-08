@@ -8,6 +8,9 @@ rm -rf ~/.linuxbrew
 rm -rf ~/.cache
 rm -rf ~/R
 
+# Ask user if they want to replace their bash profile right away
+read -r -p "Do you want to replace your bash profile? [y/n] " response
+
 # Get machine
 unameOut="$(uname -s)"
 case "${unameOut}" in
@@ -68,11 +71,20 @@ conda env create --name py2 --file py2.yaml
 pyenv global miniconda3-4.3.27/envs/primary-seq-env miniconda3-4.3.27/envs/py2 miniconda3-4.3.27
 
 # Install R packages
-cecho "Installing R packages environments" green
-echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; options(repos = r);" > ~/.Rprofile \
-Rscript -e 'install.packages(c("cowplot", "ggmap", "ape"))' \
+cecho "Installing cegwas" green
+echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; options(repos = r);" > ~/.Rprofile
 Rscript -e 'devtools::install_github("andersenlab/cegwas")'
 
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
+then
+    cecho 'Replacing bash profile'
+    curl https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/user_bash_profile.sh > ~/.bash_profile
+else
+    cecho 'Copy this (or the parts you want) to your bash profile'
+    cecho '------------------------------------------------------'
+    curl https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/user_bash_profile.sh
+    cecho '------------------------------------------------------'
+fi
 
 if [ "${machine}" -eq "Mac" ]; then
     cecho "Installation completed" green

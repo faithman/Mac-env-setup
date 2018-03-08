@@ -37,6 +37,7 @@ dependencies:
 - python=3.6
 - scikit-learn
 - scikit-image
+- scikit-bio
 - biopython
 - networkx
 - keras
@@ -48,6 +49,8 @@ dependencies:
 - r-tidyverse
 - r-sleuth
 - r-vcfr
+- r-cowplot
+- r-ggmap
 - rename
 - salmon
 - liknorm

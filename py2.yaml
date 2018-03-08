@@ -38,7 +38,7 @@ dependencies:
   - asn1crypto==0.24.0
   - awesome-slugify==1.6.5
   - backports.functools-lru-cache==1.5
-  - bam-toolbox==0.0.3
+  - https://github.com/AndersenLab/bam-toolbox/archive/0.0.3.tar.gz
   - biopython==1.70
   - boto==2.48.0
   - cffi==1.11.5
