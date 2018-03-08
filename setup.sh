@@ -58,7 +58,14 @@ set -x
 
 cecho "Installing homebrew dependencies" green
 brew tap brewsci/science
-brew install pyenv autojump nextflow autojump tree
+PACKAGES="pyenv autojump nextflow tree"
+for p in $(brew list); do
+    PACKAGES=${PACKAGES//$p/}
+done;
+
+if [ "${PACKAGES}" != "" ]; then
+    brew install ${PACKAGES}
+fi;
 
 cecho "Installing python environments" green
 pyenv install -s 2.7.14
@@ -72,7 +79,7 @@ conda config --add channels bioconda
 cecho "Creating conda environments" green
 
 curl -s https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/primary.environment.yaml > primary.environment.yaml
-curl -s https://github.com/AndersenLab/andersen-lab-env/blob/master/py2.environment.yaml > py2.environment.yaml
+curl -s https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/py2.environment.yaml > py2.environment.yaml
 conda env create --force --name primary-${DATE} --file primary.environment.yaml
 conda env create --force --name py2-${DATE} --file py2.environment.yaml
 
