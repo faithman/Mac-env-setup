@@ -9,13 +9,6 @@ read -n 1 -r -p "Do you want to replace your bash profile? [y/n] " response < /d
 
 DATE=`date +%Y-%m-%d`
 
-# Set options
-set -e
-set -x
-#rm -rf ~/.linuxbrew
-#rm -rf ~/.cache
-rm -rf ~/R
-
 # Get machine
 unameOut="$(uname -s)"
 case "${unameOut}" in
@@ -56,6 +49,18 @@ if ! [ -x "$(command -v brew)" ]; then
         PATH="$HOME/.linuxbrew/bin:$PATH"
     fi;
 fi;
+
+
+# Set options
+set -e
+set -x
+
+if [ "${machine}" -eq "Linux" ]; then
+    #rm -rf ~/.linuxbrew
+    #rm -rf ~/.cache
+    #rm -rf ~/R
+fi
+
 
 cecho "Installing homebrew dependencies" green
 brew tap brewsci/science
