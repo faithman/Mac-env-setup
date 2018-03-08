@@ -1,11 +1,11 @@
 #!/bin/bash
 # Daniel E. Cook
 # Run with: 
-# curl https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/setup.sh | bash
+# curl -s https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/setup.sh | bash
 
 
 # Ask user if they want to replace their bash profile right away
-read -n 1 -r -p "Do you want to replace your bash profile? [y/n] " response
+read -n 1 -r -p "Do you want to replace your bash profile? [y/n] " response < /dev/tty
 
 # Set options
 set -e
