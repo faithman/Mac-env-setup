@@ -53,27 +53,16 @@ if ! [ -x "$(command -v brew)" ]; then
 fi;
 
 
-# Set options
-set -e
-set -x
+
 
 
 cecho "Installing homebrew dependencies" green
 brew tap brewsci/science
-PACKAGES="pyenv autojump nextflow tree"
-for p in $(brew list); do
-    PACKAGES=${PACKAGES//$p/}
-done;
+brew install pyenv pyenv-virtualenv autojump nextflow tree
 
-if [ ! -z "${PACKAGES// }" ]; then
-    brew install ${PACKAGES}
-fi;
-
-pyenv_installed="`brew list | grep 'pyenv-virtualenv'`"
-if [ -z "${pyenv_installed}" ]; then
-    brew install pyenv-virtualenv
-fi;
-
+# Set options
+set -e
+set -x
 
 # Initialize pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
