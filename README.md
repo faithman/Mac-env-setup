@@ -58,7 +58,7 @@ __All changes to environment files need to be reflected in the git history of th
 
 ```
 # Create the base environment (use if this is the first time you are creating the environment)
-conda env update --name primary-seq-env --file primary-seq-env.base.yaml
+conda env create --name primary-seq-env --file primary-seq-env.base.yaml
 
 # Update the base enviornment after adding a new piece of software
 conda env update --name primary-seq-env --file primary-seq-env.base.yaml
