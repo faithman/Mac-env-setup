@@ -43,10 +43,15 @@ function cecho(){
 }
 
 # Install homebrew dependencies
+if ! [ -x "$(brew)" ]; then
+    cecho "Please install homebrew"
+    exit 1;
+fi;
+
 brew bundle
 
 # Initialize pyenv
-export PYENV_ROOT=/projects/b1059/pyenv_environment
+export PYENV_ROOT=~/.pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
