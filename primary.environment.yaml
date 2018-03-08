@@ -52,6 +52,9 @@ dependencies:
 - r-vcfr
 - r-cowplot
 - r-ggmap
+- r-regress
+- r-jsonlite
+- r-testthat
 - unzip
 - rename
 - salmon
