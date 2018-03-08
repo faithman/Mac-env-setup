@@ -56,8 +56,8 @@ set -e
 set -x
 
 if [ "${machine}" == "Linux" ]; then
-    #rm -rf ~/.linuxbrew
-    #rm -rf ~/.cache
+    rm -rf ~/.linuxbrew
+    rm -rf ~/.cache
     rm -rf ~/R
 fi;
 
