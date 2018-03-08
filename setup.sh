@@ -58,7 +58,7 @@ set -x
 
 cecho "Installing homebrew dependencies" green
 brew tap brewsci/science
-PACKAGES="pyenv autojump nextflow tree"
+PACKAGES="pyenv pyenv-virtualenv autojump nextflow tree"
 for p in $(brew list); do
     PACKAGES=${PACKAGES//$p/}
 done;
@@ -83,6 +83,13 @@ curl -s https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/py
 conda env create --force --name primary-${DATE} --file primary.environment.yaml
 conda env create --force --name py2-${DATE} --file py2.environment.yaml
 
+# Create record of environment
+mkdir -p ~/.conda_environment_provenance
+conda env --name export primary-${DATE} > ~/.conda_environment_provenance/primary-${DATE}.yaml
+conda env --name export py2-${DATE} > ~/.conda_environment_provenance/py2-${DATE}.yaml
+
+# Remove local environment
+rm .python-version
 pyenv global miniconda3-4.3.27/envs/primary-${DATE} miniconda3-4.3.27/envs/py2-${DATE} miniconda3-4.3.27
 
 # Install R packages
@@ -93,11 +100,11 @@ Rscript -e 'devtools::install_github("andersenlab/cegwas")'
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
     cecho 'Replacing bash profile'
-    curl https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/user_bash_profile.sh > ~/.bash_profile
+    curl -s https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/user_bash_profile.sh > ~/.bash_profile
 else
     cecho 'Copy this (or the parts you want) to your bash profile'
     cecho '------------------------------------------------------'
-    curl https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/user_bash_profile.sh
+    curl -s https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/user_bash_profile.sh
     cecho '------------------------------------------------------'
 fi
 
@@ -106,4 +113,5 @@ if [ "${machine}" -eq "Mac" ]; then
     say "Installation complete. Skynet has been activated. Have a great day."
 fi;
 
-source ~/.bash_profile
+exec bash
+
