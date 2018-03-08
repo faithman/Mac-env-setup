@@ -52,7 +52,8 @@ if ! [ -x "$(command -v brew)" ]; then
     fi;
 fi;
 
-cecho "Installing pyenv autojump nextflow" green
+cecho "Installing homebrew dependencies" green
+brew tap brewsci/science
 brew install pyenv autojump nextflow autojump tree
 
 cecho "Installing python environments" green
