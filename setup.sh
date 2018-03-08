@@ -82,7 +82,6 @@ conda config --add channels conda-forge
 conda config --add channels bioconda
 
 cecho "Creating conda environments" green
-
 curl -s https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/primary.environment.yaml > primary.environment.yaml
 curl -s https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/py2.environment.yaml > py2.environment.yaml
 conda env create --force --name primary-${DATE} --file primary.environment.yaml
