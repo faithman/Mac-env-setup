@@ -105,3 +105,5 @@ if [ "${machine}" -eq "Mac" ]; then
     cecho "Installation completed" green
     say "Installation complete. Skynet has been activated. Have a great day."
 fi;
+
+source ~/.bash_profile
