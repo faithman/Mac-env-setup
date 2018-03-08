@@ -7,6 +7,8 @@
 # Ask user if they want to replace their bash profile right away
 read -n 1 -r -p "Do you want to replace your bash profile? [y/n] " response < /dev/tty
 
+DATE=`date +%Y-%m-%d`
+
 # Set options
 set -e
 set -x
@@ -70,12 +72,12 @@ conda config --add channels bioconda
 
 cecho "Creating conda environments" green
 
-curl -s https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/primary-seq-env.yaml > primary-seq-env.yaml
-curl -s https://github.com/AndersenLab/andersen-lab-env/blob/master/py2.yaml > py2.yaml
-conda env create --force --name primary-seq-env --file primary-seq-env.yaml
-conda env create --force --name py2 --file py2.yaml
+curl -s https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/primary.environment.yaml > primary.environment.yaml
+curl -s https://github.com/AndersenLab/andersen-lab-env/blob/master/py2.environment.yaml > py2.environment.yaml
+conda env create --force --name primary-${DATE} --file primary.environment.yaml
+conda env create --force --name py2-${DATE} --file py2.environment.yaml
 
-pyenv global miniconda3-4.3.27/envs/primary-seq-env miniconda3-4.3.27/envs/py2 miniconda3-4.3.27
+pyenv global miniconda3-4.3.27/envs/primary-${DATE} miniconda3-4.3.27/envs/py2-${DATE} miniconda3-4.3.27
 
 # Install R packages
 cecho "Installing cegwas" green

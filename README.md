@@ -36,7 +36,7 @@ In this repo you will find base environments and versioned environments. Base en
 
 #### Base Environments
 
-Base environments have a `.base` suffix before the extension and are intended to be __manually__ edited. Base environments rarely indicate specific versions for software, and are used to generate the versioned environments.
+Base environments have a `.base` suffix before the extension and are intended to be __manually__ edited. The base environment specifies all the software to be installed. If new software packages are required they should be added to the base environment.
 
 * `primary-seq-env.base.yaml`
 * `py2.base.yaml`
@@ -50,9 +50,7 @@ Versioned environments explicitly define software versions and are what is used 
 
 # Updating environments
 
-For existing software that is being updated you can manually update the version number in the versioned environment file. You can also add software programs but you must update both the base environment and the versioned environment. The versioned environment __must__ specify the version number whereas the base environment generally does not.
 
-Occasionally it may be appropriate to regenerate the versioned environment with the most up to date versions of all software. To do this you should remove the existing environment and recreate it. Then use the recreated environment to generated a versioned environment YAML file.
 
 __All changes to environment files need to be reflected in the git history of this repo__.
 
