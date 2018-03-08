@@ -2,14 +2,17 @@
 # Daniel E. Cook
 # Run with: 
 # curl https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/setup.sh | bash
+
+
+# Ask user if they want to replace their bash profile right away
+read -r -p "Do you want to replace your bash profile? [y/n] " response
+
+# Set options
 set -e
 set -x
 rm -rf ~/.linuxbrew
 rm -rf ~/.cache
 rm -rf ~/R
-
-# Ask user if they want to replace their bash profile right away
-read -r -p "Do you want to replace your bash profile? [y/n] " response
 
 # Get machine
 unameOut="$(uname -s)"
