@@ -55,12 +55,6 @@ fi;
 set -e
 set -x
 
-if [ "${machine}" == "Linux" ]; then
-    rm -rf ~/.linuxbrew
-    rm -rf ~/.cache
-    rm -rf ~/R
-fi;
-
 
 cecho "Installing homebrew dependencies" green
 brew tap brewsci/science
