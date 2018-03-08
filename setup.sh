@@ -5,7 +5,7 @@
 
 
 # Ask user if they want to replace their bash profile right away
-read -r -p "Do you want to replace your bash profile? [y/n] " response
+read -n 1 -r -p "Do you want to replace your bash profile? [y/n] " response
 
 # Set options
 set -e
