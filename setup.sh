@@ -59,7 +59,7 @@ if [ "${machine}" -eq "Linux" ]; then
     #rm -rf ~/.linuxbrew
     #rm -rf ~/.cache
     rm -rf ~/R
-fi
+fi;
 
 
 cecho "Installing homebrew dependencies" green
