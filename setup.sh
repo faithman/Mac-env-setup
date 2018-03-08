@@ -1,7 +1,5 @@
 #!/bin/bash
 # Daniel E. Cook
-# Run with: 
-# curl -s https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/setup.sh | bash
 
 # Ask user if they want to replace their bash profile right away
 read -n 1 -r -p "Do you want to replace your bash profile? [y/n] " response < /dev/tty
@@ -44,14 +42,14 @@ function cecho(){
 
 # Install homebrew dependencies
 if ! [ -x "$(brew)" ]; then
-    cecho "Please install homebrew"
+    cecho "Please install homebrew or linuxbrew"
     exit 1;
 fi;
 
+# Install homebrew dependencies
 brew bundle
 
 # Initialize pyenv
-export PYENV_ROOT=~/.pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
@@ -59,22 +57,20 @@ cecho "Installing python environments" green
 pyenv install -s 2.7.14
 pyenv install -s 3.6.0
 pyenv install -s miniconda3-4.3.27
-pyenv global miniconda3-4.3.27
-
-conda config --add channels conda-forge
-conda config --add channels bioconda
+pyenv local miniconda3-4.3.27
 
 cecho "Creating conda environments" green
+conda create --name primary-${DATE} --file versions/Linux.2018-03-08.primary.yaml
+conda create --name py2-${DATE} --file versions/Linux.2018-03-08.py2.yaml
 
-conda env create --force --name py2-${DATE} --file py2.environment.yaml
-conda env create --force --name primary-${DATE} --file primary.environment.yaml
 
-# Create record of environment
-mkdir -p ~/.conda_environment_log
+cecho "Exporting conda environments" green
+mkdir -p ~/.conda_environment
 conda env export  --name  primary-${DATE} > ~/.conda_environment/primary-${DATE}.yaml
 conda env export  --name  py2-${DATE} > ~/.conda_environment/py2-${DATE}.yaml
 
 # Expand global environment
+pyenv local miniconda3-4.3.27/envs/primary-${DATE} miniconda3-4.3.27/envs/py2-${DATE} miniconda3-4.3.27
 pyenv global miniconda3-4.3.27/envs/primary-${DATE} miniconda3-4.3.27/envs/py2-${DATE} miniconda3-4.3.27
 
 # Install R packages

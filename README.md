@@ -2,9 +2,22 @@
 
 
 # Pull the latest repo for the andersen lab environment
+```
 cd && if cd ~/andersen-lab-env; then git pull; else git clone http://www.github.com/andersenlab/andersen-lab-env; fi
+bash setup.sh
+```
 
 
+# Rebuilding environments
+
+```
+# Rebuilding environments
+conda env create --force --name py2-${DATE} --file py2.environment.yaml
+conda list --explicit --name py2-${DATE} > versions/${machine}.${DATE}.py2.yaml
+
+conda env create --force --name primary-${DATE} --file primary.environment.yaml
+conda list --explicit --name primary-${DATE} > versions/${machine}.${DATE}.primary.yaml
+```
 
 The conda environment files are designed to be used with [pyenv](https://github.com/pyenv/pyenv).
 

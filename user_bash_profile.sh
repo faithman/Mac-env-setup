@@ -19,6 +19,3 @@ rm_gw() {
 
 # Autojump config
 [ -f "/home/$(whoami)/.linuxbrew/etc/profile.d/autojump.sh" ] && . "/home/$(whoami)/.linuxbrew/etc/profile.d/autojump.sh"
-
-# Load telseq module
-module load telseq/2.4.1
