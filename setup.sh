@@ -106,7 +106,7 @@ else
     cecho '------------------------------------------------------'
 fi
 
-if [ "${machine}" -eq "Mac" ]; then
+if [ "${machine}" == "Mac" ]; then
     cecho "Installation completed" green
     say "Installation complete. Skynet has been activated. Have a great day."
 fi;
