@@ -39,6 +39,9 @@ function cecho(){
     tput sgr0;
 }
 
+if [ "${machine}" == "Linux" ]; then
+    PATH="$HOME/.linuxbrew/bin:$PATH"
+fi;
 
 if ! [ -x "$(command -v brew)" ]; then
     if [ "${machine}" == "Mac" ]; then
@@ -46,7 +49,6 @@ if ! [ -x "$(command -v brew)" ]; then
         exit 1
     else
         git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
-        PATH="$HOME/.linuxbrew/bin:$PATH"
     fi;
 fi;
 
@@ -63,14 +65,15 @@ for p in $(brew list); do
     PACKAGES=${PACKAGES//$p/}
 done;
 
+if [ ! -z "${PACKAGES// }" ]; then
+    brew install ${PACKAGES}
+fi;
+
 pyenv_installed="`brew list | grep 'pyenv-virtualenv'`"
 if [ ! -z "${pyenv_installed}" ]; then
     brew install pyenv-virtualenv
 fi;
 
-if [ ! -z "${PACKAGES// }" ]; then
-    brew install ${PACKAGES}
-fi;
 
 # Initialize pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
