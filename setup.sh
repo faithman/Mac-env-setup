@@ -7,7 +7,7 @@
 # Ask user if they want to replace their bash profile right away
 read -n 1 -r -p "Do you want to replace your bash profile? [y/n] " response < /dev/tty
 
-DATE=`date +%Y-%m-%d`
+DATE="2018-03-08"
 
 # Get machine
 unameOut="$(uname -s)"
@@ -89,10 +89,10 @@ conda config --add channels conda-forge
 conda config --add channels bioconda
 
 cecho "Creating conda environments" green
-curl -s https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/primary.environment.yaml > primary.environment.yaml
-curl -s https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/py2.environment.yaml > py2.environment.yaml
-conda env create --force --name primary-${DATE} --file primary.environment.yaml
-conda env create --force --name py2-${DATE} --file py2.environment.yaml
+curl -s https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/versions/${machine}.primary-${DATE}.txt > ${machine}.primary-${DATE}.txt
+curl -s https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/versions/${machine}.py2.txt > ${machine}.primary-${DATE}.txt
+conda env create --force --name primary-${DATE} --file ${machine}.primary-${DATE}.txt
+conda env create --force --name py2-${DATE} --file ${machine}.py2-${DATE}.txt
 
 # Create record of environment
 mkdir -p ~/.conda_environment_provenance
