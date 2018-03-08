@@ -60,7 +60,7 @@ brew tap brewsci/science
 brew install pyenv pyenv-virtualenv autojump nextflow tree
 
 # Set options
-set -e
+#set -e
 set -x
 
 # Initialize pyenv
