@@ -10,8 +10,8 @@ read -n 1 -r -p "Do you want to replace your bash profile? [y/n] " response < /d
 # Set options
 set -e
 set -x
-rm -rf ~/.linuxbrew
-rm -rf ~/.cache
+#rm -rf ~/.linuxbrew
+#rm -rf ~/.cache
 rm -rf ~/R
 
 # Get machine
@@ -69,6 +69,9 @@ conda config --add channels conda-forge
 conda config --add channels bioconda
 
 cecho "Creating conda environments" green
+
+curl -s https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/primary-seq-env.yaml > primary-seq-env.yaml
+curl -s https://github.com/AndersenLab/andersen-lab-env/blob/master/py2.yaml > py2.yaml
 conda env create --name primary-seq-env --file primary-seq-env.yaml
 conda env create --name py2 --file py2.yaml
 
