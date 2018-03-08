@@ -45,6 +45,7 @@ dependencies:
 - plink
 - numpy
 - cyvcf2
+- r-devtools
 - r-essentials
 - r-tidyverse
 - r-sleuth
