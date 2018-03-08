@@ -45,9 +45,17 @@ dependencies:
 - plink
 - numpy
 - cyvcf2
+- r-devtools
+- r-essentials
+- r-tidyverse
+- r-sleuth
+- r-vcfr
+- r-cowplot
+- r-ggmap
 - rename
 - salmon
 - liknorm
 - kallisto
+- bioconductor-phyloseq
+- bioconductor-biocinstaller
 prefix: /usr/local/var/pyenv/versions/miniconda3-4.3.27/envs/primary-seq-env
-
