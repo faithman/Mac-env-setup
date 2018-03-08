@@ -70,7 +70,7 @@ if [ ! -z "${PACKAGES// }" ]; then
 fi;
 
 pyenv_installed="`brew list | grep 'pyenv-virtualenv'`"
-if [ ! -z "${pyenv_installed}" ]; then
+if [ -z "${pyenv_installed}" ]; then
     brew install pyenv-virtualenv
 fi;
 
@@ -105,7 +105,7 @@ pyenv global miniconda3-4.3.27/envs/primary-${DATE} miniconda3-4.3.27/envs/py2-$
 # Install R packages
 cecho "Installing cegwas" green
 echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; options(repos = r);" > ~/.Rprofile
-Rscript -e 'devtools::install_github("andersenlab/cegwas")'
+Rscript -e 'devtools::install_github("andersenlab/cegwas", upgrade_dependencies=FALSE)'
 
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
