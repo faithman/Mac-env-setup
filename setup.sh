@@ -63,7 +63,7 @@ for p in $(brew list); do
     PACKAGES=${PACKAGES//$p/}
 done;
 
-if [ -z "${PACKAGES}" ]; then
+if [ ! -z "${PACKAGES}" ]; then
     brew install ${PACKAGES}
 fi;
 
