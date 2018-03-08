@@ -11,12 +11,25 @@ bash setup.sh
 # Rebuilding environments
 
 ```
+
+DATE="2018-03-08"
+
+# Get machine
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine=Linux;;
+    Darwin*)    machine=Mac;;
+    CYGWIN*)    machine=Cygwin;;
+    MINGW*)     machine=MinGw;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
+
 # Rebuilding environments
 conda env create --force --name py2-${DATE} --file py2.environment.yaml
-conda list --explicit --name py2-${DATE} > versions/${machine}.${DATE}.py2.yaml
+conda env export --name py2-${DATE} > versions/${machine}.${DATE}.py2.yaml
 
 conda env create --force --name primary-${DATE} --file primary.environment.yaml
-conda list --explicit --name primary-${DATE} > versions/${machine}.${DATE}.primary.yaml
+conda env export --name primary-${DATE} > versions/${machine}.${DATE}.primary.yaml
 ```
 
 The conda environment files are designed to be used with [pyenv](https://github.com/pyenv/pyenv).

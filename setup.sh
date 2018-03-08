@@ -60,8 +60,8 @@ pyenv install -s miniconda3-4.3.27
 pyenv local miniconda3-4.3.27
 
 cecho "Creating conda environments" green
-conda create --name primary-${DATE} --file versions/Linux.2018-03-08.primary.yaml
-conda create --name py2-${DATE} --file versions/Linux.2018-03-08.py2.yaml
+conda env create --force --name py2-${DATE} --file versions/${machine}.${DATE}.py2.yaml
+conda env create --force --name primary-${DATE} --file versions/${machine}.${DATE}.primary.yaml
 
 
 cecho "Exporting conda environments" green
