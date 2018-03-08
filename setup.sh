@@ -3,9 +3,12 @@
 # Run with: 
 # curl -s https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/setup.sh | bash
 
-
 # Ask user if they want to replace their bash profile right away
 read -n 1 -r -p "Do you want to replace your bash profile? [y/n] " response < /dev/tty
+
+# Set options
+set -e
+set -x
 
 DATE="2018-03-08"
 
@@ -39,31 +42,11 @@ function cecho(){
     tput sgr0;
 }
 
-if [ "${machine}" == "Linux" ]; then
-    PATH="$HOME/.linuxbrew/bin:$PATH"
-fi;
-
-if ! [ -x "$(command -v brew)" ]; then
-    if [ "${machine}" == "Mac" ]; then
-        cecho "Please install homebrew" red
-        exit 1
-    else
-        git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
-    fi;
-fi;
-
-
-export PKG_CONFIG_PATH=/usr/share/pkgconfig:$PKG_CONFIG_PATH
-
-cecho "Installing homebrew dependencies" green
-brew tap brewsci/science
-brew install pyenv pyenv-virtualenv autojump nextflow tree
-
-# Set options
-#set -e
-set -x
+# Install homebrew dependencies
+brew bundle
 
 # Initialize pyenv
+export PYENV_ROOT=/projects/b1059/pyenv_environment
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
@@ -77,15 +60,14 @@ conda config --add channels conda-forge
 conda config --add channels bioconda
 
 cecho "Creating conda environments" green
-curl -s https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/versions/${machine}.primary-${DATE}.txt > ${machine}.primary-${DATE}.txt
-curl -s https://raw.githubusercontent.com/AndersenLab/andersen-lab-env/master/versions/${machine}.py2.txt > ${machine}.primary-${DATE}.txt
-conda env create --force --name primary-${DATE} --file ${machine}.primary-${DATE}.txt
-conda env create --force --name py2-${DATE} --file ${machine}.py2-${DATE}.txt
+
+conda env create --force --name py2-${DATE} --file py2.environment.yaml
+conda env create --force --name primary-${DATE} --file primary.environment.yaml
 
 # Create record of environment
-mkdir -p ~/.conda_environment_provenance
-conda env export  --name  primary-${DATE} > ~/.conda_environment_provenance/primary-${DATE}.yaml
-conda env export  --name  py2-${DATE} > ~/.conda_environment_provenance/py2-${DATE}.yaml
+mkdir -p ~/.conda_environment_log
+conda env export  --name  primary-${DATE} > ~/.conda_environment/primary-${DATE}.yaml
+conda env export  --name  py2-${DATE} > ~/.conda_environment/py2-${DATE}.yaml
 
 # Expand global environment
 pyenv global miniconda3-4.3.27/envs/primary-${DATE} miniconda3-4.3.27/envs/py2-${DATE} miniconda3-4.3.27
@@ -93,6 +75,7 @@ pyenv global miniconda3-4.3.27/envs/primary-${DATE} miniconda3-4.3.27/envs/py2-$
 # Install R packages
 cecho "Installing cegwas" green
 echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; options(repos = r);" > ~/.Rprofile
+echo "if(getOption("unzip") == "") options(unzip = 'internal')" >> ~/.Rprofile
 Rscript -e 'devtools::install_github("andersenlab/cegwas", upgrade_dependencies=FALSE)'
 
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
