@@ -1,5 +1,11 @@
 # andersen-lab
 
+
+# Pull the latest repo for the andersen lab environment
+cd && if cd ~/andersen-lab-env; then git pull; else git clone http://www.github.com/andersenlab/andersen-lab-env; fi
+
+
+
 The conda environment files are designed to be used with [pyenv](https://github.com/pyenv/pyenv).
 
 ```
@@ -16,6 +22,11 @@ conda create --file primary-seq-env.yaml
 conda create --file py2.yaml
 ```
 
+```
+cecho "Installing homebrew dependencies" green
+brew tap brewsci/science
+brew install pyenv pyenv-virtualenv autojump nextflow tree
+```
 
 ## Installing
 
@@ -43,14 +54,21 @@ Base environments have a `.base` suffix before the extension and are intended to
 
 #### Versioned Environments
 
-Versioned environments explicitly define software versions and are what is used to install software for use with pipelines.
+Versioned environments explicitly define software versions and are what is used to install software for use with pipelines. The versioned environments
+are platform specific and have the following pattern:
+
+`[platform].[env].yaml`
+
+Currently these two environments are:
 
 * `primary-seq-env.yaml`
 * `py2.yaml`
 
 # Updating environments
 
+In order to make the installation proces quick environments are explicitly versioned. Updates can be made by modifying the original environments which end with `.environment.yaml` and regenerating the platform (linux/mac) environment versions of each environment.
 
+For the `py2` environment the bam-toolbox requirement will need to be manually updated in the exported environment.
 
 __All changes to environment files need to be reflected in the git history of this repo__.
 
