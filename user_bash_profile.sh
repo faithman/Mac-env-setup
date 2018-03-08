@@ -6,7 +6,6 @@ export MANPATH="$(brew --prefix)/share/man:$MANPATH"
 export INFOPATH="$(brew --prefix)/share/info:$INFOPATH"
 
 # pyenv
-export PYENV_ROOT=~/.pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
@@ -20,6 +19,3 @@ rm_gw() {
 
 # Autojump config
 [ -f "/home/$(whoami)/.linuxbrew/etc/profile.d/autojump.sh" ] && . "/home/$(whoami)/.linuxbrew/etc/profile.d/autojump.sh"
-
-# Load telseq module
-module load telseq/2.4.1
