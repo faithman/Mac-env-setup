@@ -72,7 +72,12 @@ pyenv install -s 2.7.14
 pyenv install -s 3.6.0
 pyenv install -s miniconda3-4.3.27
 
-pyenv local miniconda3-4.3.27
+
+# Initialize pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+pyenv global miniconda3-4.3.27
+
 conda config --add channels conda-forge
 conda config --add channels bioconda
 
@@ -88,8 +93,7 @@ mkdir -p ~/.conda_environment_provenance
 conda env export  --name  primary-${DATE} > ~/.conda_environment_provenance/primary-${DATE}.yaml
 conda env export  --name  py2-${DATE} > ~/.conda_environment_provenance/py2-${DATE}.yaml
 
-# Remove local environment
-rm .python-version
+# Expand global environment
 pyenv global miniconda3-4.3.27/envs/primary-${DATE} miniconda3-4.3.27/envs/py2-${DATE} miniconda3-4.3.27
 
 # Install R packages
