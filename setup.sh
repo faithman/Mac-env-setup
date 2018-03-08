@@ -58,24 +58,28 @@ set -x
 
 cecho "Installing homebrew dependencies" green
 brew tap brewsci/science
-PACKAGES="pyenv pyenv-virtualenv autojump nextflow tree"
+PACKAGES="pyenv autojump nextflow tree"
 for p in $(brew list); do
     PACKAGES=${PACKAGES//$p/}
 done;
+
+pyenv_installed="`brew list | grep 'pyenv-virtualenv'`"
+if [ ! -z "${pyenv_installed}" ]; then
+    brew install pyenv-virtualenv
+fi;
 
 if [ ! -z "${PACKAGES// }" ]; then
     brew install ${PACKAGES}
 fi;
 
+# Initialize pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
 cecho "Installing python environments" green
 pyenv install -s 2.7.14
 pyenv install -s 3.6.0
 pyenv install -s miniconda3-4.3.27
-
-
-# Initialize pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 pyenv global miniconda3-4.3.27
 
 conda config --add channels conda-forge
