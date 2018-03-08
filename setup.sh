@@ -53,6 +53,8 @@ if ! [ -x "$(command -v brew)" ]; then
 fi;
 
 
+export PKG_CONFIG_PATH=/usr/share/pkgconfig:$PKG_CONFIG_PATH
+
 cecho "Installing homebrew dependencies" green
 brew tap brewsci/science
 brew install pyenv pyenv-virtualenv autojump nextflow tree
