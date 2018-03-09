@@ -15,7 +15,7 @@ dependencies:
 - datamash
 - fastqc
 - fastx_toolkit
-- gatk
+- gatk4
 - ibdseq
 - rename
 - java-jdk
@@ -35,6 +35,8 @@ dependencies:
 - cython
 - ipython
 - python=3.6
+- pybedtools
+- pysam
 - scikit-learn
 - scikit-image
 - scikit-bio
