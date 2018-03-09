@@ -7,6 +7,29 @@ cd && if cd ~/andersen-lab-env; then git pull; else git clone http://www.github.
 bash setup.sh
 ```
 
+# Setup Software Environment
+
+### Homebrew / Linuxbrew must be installed
+
+You can install homebrew on Mac using:
+
+```
+
+```
+
+You can install homebrew on Linux using:
+
+```
+
+```
+
+You can set up the andersen-lab-env using the following command:
+
+```
+
+cd && if cd ~/andersen-lab-env; then git pull; else git clone http://www.github.com/andersenlab/andersen-lab-env; fi
+bash setup.sh
+```
 
 # Rebuilding environments
 
@@ -52,6 +75,12 @@ conda create --file py2.yaml
 cecho "Installing homebrew dependencies" green
 brew tap brewsci/science
 brew install pyenv pyenv-virtualenv autojump nextflow tree
+```
+
+## Installing on Mac
+
+```
+xcode-select --install
 ```
 
 ## Installing

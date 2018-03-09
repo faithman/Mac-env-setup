@@ -8,7 +8,8 @@ read -n 1 -r -p "Do you want to replace your bash profile? [y/n] " response < /d
 set -e
 set -x
 
-DATE="2018-03-08"
+DATE="2018-03-09"
+CONDA_VERSION="miniconda3-4.3.27"
 
 # Get machine
 unameOut="$(uname -s)"
@@ -54,14 +55,23 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 cecho "Installing python environments" green
-pyenv install -s 2.7.14
-pyenv install -s 3.6.0
-pyenv install -s miniconda3-4.3.27
-pyenv local miniconda3-4.3.27
+pyenv install -s ${CONDA_VERSION}
+pyenv local ${CONDA_VERSION}
 
 cecho "Creating conda environments" green
-conda env create --force --name py2-${DATE} --file versions/${machine}.${DATE}.py2.yaml
-conda env create --force --name primary-${DATE} --file versions/${machine}.${DATE}.primary.yaml
+
+pyenv uninstall -f py2-${DATE}
+pyenv virtualenv --force ${CONDA_VERSION} py2-${DATE}
+conda env update --name=py2-${DATE} --file=versions/${machine}.${DATE}.py2.yaml
+
+pyenv uninstall -f primary-${DATE}
+pyenv virtualenv --force ${CONDA_VERSION} primary-${DATE}
+conda env update --name=primary-${DATE} --file=versions/${machine}.${DATE}.primary.yaml
+
+cecho "Install bam-toolbox"
+pyenv local 
+pyenv rehash 
+pip install --no-deps https://github.com/AndersenLab/bam-toolbox/archive/0.0.3.tar.gz
 
 
 cecho "Exporting conda environments" green
@@ -70,8 +80,8 @@ conda env export  --name  primary-${DATE} > ~/.conda_environment/primary-${DATE}
 conda env export  --name  py2-${DATE} > ~/.conda_environment/py2-${DATE}.yaml
 
 # Expand global environment
-pyenv local miniconda3-4.3.27/envs/primary-${DATE} miniconda3-4.3.27/envs/py2-${DATE} miniconda3-4.3.27
-pyenv global miniconda3-4.3.27/envs/primary-${DATE} miniconda3-4.3.27/envs/py2-${DATE} miniconda3-4.3.27
+pyenv local ${CONDA_VERSION}/envs/primary-${DATE} ${CONDA_VERSION}/envs/py2-${DATE} ${CONDA_VERSION}
+pyenv global ${CONDA_VERSION}/envs/primary-${DATE} ${CONDA_VERSION}/envs/py2-${DATE} ${CONDA_VERSION}
 
 pyenv rehash
 
@@ -98,4 +108,5 @@ if [ "${machine}" == "Mac" ]; then
 fi;
 
 exec bash
+source ~/.bash_profile
 

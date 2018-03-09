@@ -2,6 +2,7 @@ name: py2-2018-03-08
 channels:
 - bioconda
 - conda-forge
+- r
 - defaults
 dependencies:
 - awscli=1.8.3=py27_0
@@ -20,7 +21,6 @@ dependencies:
 - docutils=0.14=py27_0
 - jmespath=0.9.3=py27_0
 - krb5=1.14.2=0
-- libgfortran=3.0.0=0
 - libssh2=1.8.0=2
 - ncurses=5.9=10
 - numpy=1.14.1=py27_blas_openblas_200
@@ -37,12 +37,17 @@ dependencies:
 - wheel=0.30.0=py27_2
 - xz=5.2.3=0
 - zlib=1.2.11=0
+- libgcc=7.2.0=h69d50b8_2
+- libgcc-ng=7.2.0=h7cc24e2_2
+- libgfortran=3.0.0=1
+- libstdcxx-ng=7.2.0=h7a57d05_2
 - pip:
   - argcomplete==1.9.4
   - args==0.1.0
   - asn1crypto==0.24.0
   - awesome-slugify==1.6.5
   - backports.functools-lru-cache==1.5
+  - https://github.com/AndersenLab/bam-toolbox/archive/0.0.3.tar.gz
   - biopython==1.70
   - boto==2.48.0
   - cffi==1.11.5
@@ -56,8 +61,16 @@ dependencies:
   - docopt==0.6.2
   - enum34==1.1.6
   - funcsigs==1.0.2
+  - gax-google-logging-v2==0.8.3
+  - gax-google-pubsub-v1==0.8.3
+  - gcloud==0.18.3
   - gcs-oauth2-boto-plugin==1.14
   - google-apitools==0.5.16
+  - google-gax==0.12.5
+  - googleapis-common-protos==1.5.3
+  - grpc-google-logging-v2==0.8.1
+  - grpc-google-pubsub-v1==0.8.1
+  - grpcio==1.8.0rc2
   - gsutil==4.28
   - httplib2==0.10.3
   - idna==2.6
@@ -92,5 +105,5 @@ dependencies:
   - urllib3==1.22
   - vcf-kit==0.1.6
   - yahmm==1.1.2
-prefix: /usr/local/var/pyenv/versions/miniconda3-4.3.27/envs/py2-2018-03-08
+prefix: /home/dec211/.pyenv/versions/miniconda3-4.3.27/envs/py2-2018-03-08
 
