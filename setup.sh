@@ -69,8 +69,8 @@ pyenv virtualenv --force ${CONDA_VERSION} primary-${DATE}
 conda env update --name=primary-${DATE} --file=versions/${machine}.${DATE}.primary.yaml
 
 cecho "Install bam-toolbox"
-pyenv local 
-pyenv rehash 
+pyenv local py2-${DATE}
+pyenv rehash
 pip install --no-deps https://github.com/AndersenLab/bam-toolbox/archive/0.0.3.tar.gz
 
 
