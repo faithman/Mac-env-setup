@@ -5,7 +5,7 @@ channels:
 - defaults
 dependencies:
 - bamtools
-- bcftools
+- bcftools==1.7
 - blast
 - beagle
 - bedops
