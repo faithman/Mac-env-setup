@@ -45,6 +45,7 @@ dependencies:
 - keras
 - pigz
 - plink
+- tabix
 - numpy
 - cyvcf2
 - r-devtools
