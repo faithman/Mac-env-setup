@@ -60,13 +60,11 @@ pyenv local ${CONDA_VERSION}
 
 cecho "Creating conda environments" green
 
-pyenv uninstall -f py2-${DATE}
-pyenv virtualenv --force ${CONDA_VERSION} py2-${DATE}
-conda env update --name=py2-${DATE} --file=versions/${machine}.${DATE}.py2.yaml
-
-pyenv uninstall -f primary-${DATE}
-pyenv virtualenv --force ${CONDA_VERSION} primary-${DATE}
-conda env update --name=primary-${DATE} --file=versions/${machine}.${DATE}.primary.yaml
+for environment_name in primary py2; do
+    pyenv uninstall -f ${environment_name}-${DATE}
+    pyenv virtualenv --force ${CONDA_VERSION} ${environment_name}-${DATE}
+    conda env update --prune --name=${environment_name}-${DATE} --file=versions/${machine}.${DATE}.${environment_name}.yaml
+done;
 
 cecho "Install bam-toolbox"
 pyenv local py2-${DATE}
