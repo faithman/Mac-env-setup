@@ -22,7 +22,7 @@ for environment_name in primary py2; do
     pyenv virtualenv --force ${CONDA_VERSION} ${environment_name}-${DATE}
     pyenv local ${environment_name}-${DATE}
     conda env update --name ${environment_name}-${DATE} --file ${environment_name}.environment.yaml
-    conda env export --name ${environment_name}-${DATE} > versions/${machine}.${DATE}.environment.yaml
+    conda env export --name ${environment_name}-${DATE} > versions/${machine}.${DATE}.${environment_name}.yaml
 done;
 
 rm .python-version
