@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -e
+set -x
+
 DATE="2018-03-09"
 CONDA_VERSION="miniconda3-4.3.27"
 
@@ -19,5 +22,5 @@ for environment_name in primary py2; do
     pyenv virtualenv --force ${CONDA_VERSION} ${environment_name}-${DATE}
     pyenv local ${environment_name}-${DATE}
     conda env update --name=${environment_name}-${DATE} --file=${environment_name}.enviornment.yaml
-    conda env export --name ${environment_name}-${DATE} > versions/${machine}.${DATE}.${environment_name}.yaml
+    conda env export --name ${environment_name}-${DATE} > versions/${machine}.${DATE}.environment.yaml
 done;
