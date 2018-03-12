@@ -22,6 +22,7 @@ dependencies:
 - multiqc
 - muscle
 - parallel
+- delly
 - picard
 - primer3
 - sambamba
