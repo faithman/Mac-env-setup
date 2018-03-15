@@ -16,6 +16,7 @@ dependencies:
 - fastqc
 - fastx_toolkit
 - gatk4
+- jq
 - ibdseq
 - rename
 - java-jdk
@@ -64,6 +65,7 @@ dependencies:
 - salmon
 - liknorm
 - kallisto
+- ucsc-bigwigtobedgraph
 - bioconductor-phyloseq
 - bioconductor-biocinstaller
 prefix: /usr/local/var/pyenv/versions/miniconda3-4.3.27/envs/primary-seq-env
