@@ -60,6 +60,7 @@ dependencies:
 - r-regress
 - r-jsonlite
 - r-testthat
+- r-tseries
 - unzip
 - rename
 - salmon
