@@ -12,6 +12,7 @@ dependencies:
 - pysam
 - manta
 - svdb
+- strelka
 - python=2.7.14
 - pip:
   - vcf-kit
