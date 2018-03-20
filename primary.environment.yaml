@@ -24,6 +24,8 @@ dependencies:
 - muscle
 - parallel
 - delly
+- mosdepth
+- goleft
 - picard
 - primer3
 - sambamba
