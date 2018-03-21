@@ -32,6 +32,7 @@ dependencies:
 - samtools
 - snpeff
 - igvtools
+- fastx_toolkit
 - trimmomatic
 - vcflib
 - vcftools
