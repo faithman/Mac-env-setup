@@ -72,4 +72,5 @@ dependencies:
 - ucsc-bigwigtobedgraph
 - bioconductor-phyloseq
 - bioconductor-biocinstaller
+- bioconductor-biomart
 prefix: /usr/local/var/pyenv/versions/miniconda3-4.3.27/envs/primary-seq-env
