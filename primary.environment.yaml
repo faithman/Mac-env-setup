@@ -21,6 +21,7 @@ dependencies:
 - rename
 - java-jdk
 - multiqc
+- vcfanno
 - muscle
 - parallel
 - delly
@@ -64,6 +65,7 @@ dependencies:
 - r-jsonlite
 - r-testthat
 - r-tseries
+- r-igraph
 - unzip
 - rename
 - salmon
