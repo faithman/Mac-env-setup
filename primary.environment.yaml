@@ -4,6 +4,7 @@ channels:
 - conda-forge
 - defaults
 dependencies:
+- awscli
 - bamtools
 - bcftools==1.7
 - blast
@@ -21,7 +22,6 @@ dependencies:
 - rename
 - java-jdk
 - multiqc
-- vcfanno
 - muscle
 - parallel
 - delly
@@ -51,9 +51,11 @@ dependencies:
 - keras
 - pigz
 - plink
+- telseq
 - tabix
 - numpy
 - cyvcf2
+- r-ape==4.1
 - r-devtools
 - r-essentials
 - r-tidyverse
