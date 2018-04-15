@@ -14,6 +14,11 @@ dependencies:
 - svdb
 - svtools
 - strelka
+- smoove
+- lumpy-sv
+- svtools
+- gsort
+- mosdepth
 - svtyper
 - python=2.7.14
 - pip:
