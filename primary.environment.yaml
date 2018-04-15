@@ -73,7 +73,6 @@ dependencies:
 - mosdepth
 - gsort
 - kallisto
-- smoove
 - ucsc-bigwigtobedgraph
 - bioconductor-phyloseq
 - bioconductor-biocinstaller
