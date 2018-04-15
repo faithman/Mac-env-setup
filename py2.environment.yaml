@@ -14,6 +14,7 @@ dependencies:
 - svdb
 - svtools
 - strelka
+- svtyper
 - python=2.7.14
 - pip:
   - vcf-kit
