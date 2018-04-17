@@ -68,6 +68,7 @@ dependencies:
 - r-testthat
 - r-tseries
 - r-igraph
+- r-svglite
 - unzip
 - rename
 - salmon
