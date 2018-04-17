@@ -66,11 +66,6 @@ for environment_name in primary py2; do
     conda env update --prune --name=${environment_name}-${DATE} --file=versions/${machine}.${DATE}.${environment_name}.yaml
 done;
 
-cecho "Install bam-toolbox"
-pyenv local py2-${DATE}
-pyenv rehash
-pip install --no-deps https://github.com/AndersenLab/bam-toolbox/archive/0.0.3.tar.gz
-
 
 cecho "Exporting conda environments" green
 mkdir -p ~/.conda_environment
