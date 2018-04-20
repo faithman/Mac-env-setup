@@ -24,6 +24,5 @@ dependencies:
 - pip:
   - vcf-kit
   - gsutil
-  - https://github.com/AndersenLab/bam-toolbox/archive/0.0.3.tar.gz
 prefix: /usr/local/var/pyenv/versions/miniconda3-4.3.27/envs/vcf-kit
 
