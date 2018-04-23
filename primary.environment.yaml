@@ -80,4 +80,5 @@ dependencies:
 - bioconductor-phyloseq
 - bioconductor-biocinstaller
 - bioconductor-biomart
+- scikit-allel
 prefix: /usr/local/var/pyenv/versions/miniconda3-4.3.27/envs/primary-seq-env
