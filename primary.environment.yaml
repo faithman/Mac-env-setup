@@ -37,6 +37,7 @@ dependencies:
 - trimmomatic
 - vcflib
 - vcftools
+- perl-vcftools-vcf 
 - vcfanno
 - cython
 - ipython
