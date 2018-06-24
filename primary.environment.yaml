@@ -4,6 +4,7 @@ channels:
 - conda-forge
 - defaults
 dependencies:
+- appnope
 - awscli
 - bamtools
 - bcftools==1.7
