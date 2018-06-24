@@ -15,6 +15,7 @@ dependencies:
 - bwa
 - freebayes==1.0.2
 - datamash
+- decorator
 - fastqc
 - fastx_toolkit
 - gatk4
