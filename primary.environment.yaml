@@ -54,6 +54,7 @@ dependencies:
 - biopython
 - networkx
 - keras
+- pexpect
 - pigz
 - plink
 - telseq
