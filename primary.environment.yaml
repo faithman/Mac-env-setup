@@ -30,6 +30,7 @@ dependencies:
 - delly
 - mosdepth
 - goleft
+- parso
 - picard
 - primer3
 - sambamba
