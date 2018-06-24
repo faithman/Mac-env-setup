@@ -27,8 +27,6 @@ dependencies:
 - multiqc
 - muscle
 - parallel
-- delly
-- mosdepth
 - goleft
 - parso
 - picard
@@ -79,7 +77,6 @@ dependencies:
 - rename
 - salmon
 - liknorm
-- mosdepth
 - gsort
 - kallisto
 - ucsc-bigwigtobedgraph
