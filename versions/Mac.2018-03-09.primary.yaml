@@ -1,9 +1,8 @@
 name: primary-2018-03-09
 channels:
-  - bioconda
-  - r
-  - defaults
   - conda-forge
+  - bioconda
+  - defaults
 dependencies:
   - bamtools=2.5.1=he941832_3
   - bcftools=1.7=0
@@ -44,7 +43,6 @@ dependencies:
   - jq=1.5=0
   - kallisto=0.44.0=h647bee3_2
   - libdeflate=1.0=h470a237_0
-  - libffi=3.2.1=1
   - libgtextutils=0.7=h470a237_4
   - multiqc=1.5=py36_0
   - muscle=3.8.1551=h470a237_3
@@ -86,7 +84,7 @@ dependencies:
   - asn1crypto=0.24.0=py_1
   - attrs=18.1.0=py_1
   - automat=0.7.0=py36_0
-  - awscli=1.15.60=py36_0
+  - awscli=1.15.61=py36_0
   - backcall=0.1.0=py_0
   - backports=1.0=py36_1
   - backports.functools_lru_cache=1.5=py_1
@@ -95,7 +93,7 @@ dependencies:
   - bokeh=0.12.16=py36_0
   - boost=1.66.0=py36_1
   - boost-cpp=1.66.0=1
-  - botocore=1.10.59=py_0
+  - botocore=1.10.60=py_0
   - bzip2=1.0.6=1
   - ca-certificates=2018.4.16=0
   - cachecontrol=0.12.5=py_0
@@ -124,7 +122,7 @@ dependencies:
   - fasteners=0.14.1=py36_2
   - fontconfig=2.12.1=4
   - freetype=2.7=1
-  - future=0.16.0=py_1
+  - future=0.16.0=py36_2
   - gettext=0.19.8.1=0
   - glib=2.51.4=0
   - gmp=6.1.2=hfc679d8_0
@@ -155,7 +153,6 @@ dependencies:
   - keras=2.1.6=py36_0
   - krb5=1.14.6=0
   - libedit=3.1.20170329=0
-  - libgfortran=3.0.0=0
   - libgpuarray=0.7.6=0
   - libiconv=1.15=h470a237_1
   - libpng=1.6.34=ha92aebf_1
@@ -197,7 +194,7 @@ dependencies:
   - openssl=1.0.2o=0
   - packaging=17.1=py_0
   - pandas=0.23.3=py36_0
-  - pandoc=2.2.2=hde52d81_0
+  - pandoc=2.2.2=hde52d81_1
   - pandocfilters=1.4.2=py_1
   - pango=1.40.4=0
   - parso=0.3.0=py_0
@@ -465,7 +462,9 @@ dependencies:
   - font-ttf-dejavu-sans-mono=2.37=h6964260_0
   - libcxx=4.0.1=h579ed51_0
   - libcxxabi=4.0.1=hebd6815_0
-  - libgcc=4.8.5=1
+  - libffi=3.2.1=h475c297_4
+  - libgcc=4.8.5=hdbeacc1_10
+  - libgfortran=3.0.1=h93005f0_2
   - pytables=3.4.4=py36h13cba08_0
   - tk=8.6.7=h35a86e2_3
   - xz=5.2.4=h1de35cc_4
@@ -473,5 +472,5 @@ dependencies:
   - pip:
     - msgpack==0.5.6
     - tables==3.4.4
-prefix: /Users/stefan/.pyenv/versions/miniconda3-4.3.27/envs/primary-2018-03-09
+prefix: /Users/yewang/.pyenv/versions/miniconda3-4.3.27/envs/primary-2018-03-09
 

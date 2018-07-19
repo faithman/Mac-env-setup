@@ -1,12 +1,12 @@
 name: py2
 channels:
 - bioconda
+- biobuilds
 - conda-forge
 - defaults
 dependencies:
 - cython
 - delly
-- blobtools
 - numpy
 - awscli
 - samtools

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Daniel E. Cook
+
 
 # Ask user if they want to replace their bash profile right away
 read -n 1 -r -p "Do you want to replace your bash profile? [y/n] " response < /dev/tty
@@ -14,11 +14,9 @@ CONDA_VERSION="miniconda3-4.3.27"
 # Get machine
 unameOut="$(uname -s)"
 case "${unameOut}" in
-    Linux*)     machine=Linux;;
     Darwin*)    machine=Mac;;
     CYGWIN*)    machine=Cygwin;;
-    MINGW*)     machine=MinGw;;
-    *)          machine="UNKNOWN:${unameOut}"
+
 esac
 
 function cecho(){
