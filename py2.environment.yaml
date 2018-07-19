@@ -6,6 +6,7 @@ channels:
 dependencies:
 - cython
 - delly
+- blobtools
 - numpy
 - awscli
 - samtools
